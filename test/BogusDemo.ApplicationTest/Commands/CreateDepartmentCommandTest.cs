@@ -1,8 +1,4 @@
-﻿using BogusDemo.Application.Commands;
-using BogusDemo.Infra;
-using MediatR;
-
-namespace BogusDemo.ApplicationTest.Commands;
+﻿namespace BogusDemo.ApplicationTest.Commands;
 
 public partial class CreateDepartmentCommandTest
 {
