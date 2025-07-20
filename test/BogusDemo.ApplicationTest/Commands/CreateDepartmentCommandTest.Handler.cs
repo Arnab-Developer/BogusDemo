@@ -9,8 +9,6 @@ public partial class CreateDepartmentCommandTest
     public async Task Handler_WorkProperly_GivenValidInput()
     {
         // Arrange
-        var department = new Department("Test Department");
-
         _repoMock.Setup(r => r.AddAsync(It.IsAny<Department>(), _ct));
         _repoMock.Setup(r => r.SaveChangesAsync(_ct));
 
@@ -20,7 +18,10 @@ public partial class CreateDepartmentCommandTest
         // Assert
         isSuccess.ShouldBeTrue();
 
-        _repoMock.Verify(r => r.AddAsync(It.IsAny<Department>(), _ct), Times.Once());
+        _repoMock.Verify(
+            r => r.AddAsync(It.Is<Department>(d => d.Name == "Test Department"), _ct), 
+            Times.Once());
+
         _repoMock.Verify(r => r.SaveChangesAsync(_ct), Times.Once());
         _repoMock.VerifyNoOtherCalls();
     }
