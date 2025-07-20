@@ -1,4 +1,5 @@
 using BogusDemo.Api.Endpoints;
+using BogusDemo.Application.Commands;
 using BogusDemo.Infra;
 using Scalar.AspNetCore;
 
@@ -9,6 +10,9 @@ builder.Services.AddScoped<IDepartmentRepo, DepartmentRepo>();
 
 var constr = builder.Configuration.GetConnectionString("Constr");
 builder.Services.AddSqlServer<BogusDemoContext>(constr);
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssemblyContaining<CreateDepartmentCommand>());
 
 var app = builder.Build();
 

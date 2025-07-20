@@ -18,7 +18,7 @@ public class Department : BaseModel
     /// <param name="name">The name of the department.</param>
     public Department(string name)
     {
-        _name = name;
+        _name = Guard.Against.NullOrWhiteSpace(name);
         _rooms = new List<Room>();
     }
 

@@ -1,4 +1,6 @@
-﻿namespace BogusDemo.CoreTest;
+﻿using BogusDemo.Core;
+
+namespace BogusDemo.CoreTest;
 
 public partial class DepartmentTest
 {
@@ -9,5 +11,16 @@ public partial class DepartmentTest
         _department.ShouldNotBeNull();
         _department.Name.ShouldBe("Test Department");
         _department.Rooms.ShouldBeEmpty();
+    }
+
+    [Fact]
+    public void ThrowsException_GivenEmptyInput()
+    {
+        // Act
+        var func = () => new Department("");
+
+        // Assert
+        var exception = func.ShouldThrow<ArgumentException>();
+        exception.Message.ShouldBe("Required input name was empty. (Parameter 'name')");
     }
 }
