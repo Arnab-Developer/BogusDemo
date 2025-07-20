@@ -3,7 +3,12 @@
 /// <summary>The base model class.</summary>
 public abstract class BaseModel
 {
-    private readonly int _id;
+    private int _id;
+
+    protected BaseModel()
+    {
+        _id = 0;
+    }
 
     /// <summary>Gets the value of id.</summary>
     public int Id
@@ -11,6 +16,10 @@ public abstract class BaseModel
         get
         {
             return _id;
+        }
+        private set
+        {
+            _id = value;
         }
     }
 }

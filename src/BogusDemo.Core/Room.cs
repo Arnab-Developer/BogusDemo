@@ -6,13 +6,20 @@ namespace BogusDemo.Core;
 public class Room : BaseModel
 {
     private string _roomNumber;
-    private readonly Department? _department;
+    private Department? _department;
+
+    private Room()
+    {
+        _roomNumber = string.Empty;
+        _department = null;
+    }
 
     /// <summary>Create a new object of the room class.</summary>
     /// <param name="number">The number of the room.</param>
     public Room(string number)
     {
         _roomNumber = Guard.Against.NullOrWhiteSpace(number);
+        _department = null;
     }
 
     /// <summary>Gets the number of the room.</summary>
@@ -21,6 +28,10 @@ public class Room : BaseModel
         get
         {
             return _roomNumber;
+        }
+        private set
+        {
+            _roomNumber = value;
         }
     }
 

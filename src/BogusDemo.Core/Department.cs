@@ -8,11 +8,17 @@ public class Department : BaseModel
     private string _name;
     private readonly IList<Room> _rooms;
 
+    private Department()
+    {
+        _name = string.Empty;
+        _rooms = new List<Room>();
+    }
+
     /// <summary>Create a new object of department class.</summary>
     /// <param name="name">The name of the department.</param>
     public Department(string name)
     {
-        _name = name;
+        _name = Guard.Against.NullOrWhiteSpace(name);
         _rooms = new List<Room>();
     }
 
@@ -22,6 +28,10 @@ public class Department : BaseModel
         get
         {
             return _name;
+        }
+        private set
+        {
+            _name = value;
         }
     }
 
