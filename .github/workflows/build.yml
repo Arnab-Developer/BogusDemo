@@ -1,4 +1,4 @@
-name: build
+name: Build
 
 on:  
   push:
@@ -13,20 +13,21 @@ env:
 jobs:
   build:    
     runs-on: ubuntu-latest
+    name: Build
     steps:
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v4
       
-    - name: setup dotnet
+    - name: Setup dotnet
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
 
-    - name: restore nuget packages
+    - name: Restore nuget packages
       run: dotnet restore --locked-mode
 
-    - name: build
+    - name: Build
       run: dotnet build -c ${{ env.config }} --no-restore
 
-    - name: test
+    - name: Test
       run: dotnet test -c ${{ env.config }} --no-build
