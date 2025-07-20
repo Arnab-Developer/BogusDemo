@@ -1,4 +1,5 @@
 ﻿using Ardalis.GuardClauses;
+using System.Xml.Linq;
 
 namespace BogusDemo.Core;
 
@@ -7,6 +8,12 @@ public class Department : BaseModel
 {
     private string _name;
     private readonly IList<Room> _rooms;
+
+    private Department()
+    {
+        _name = string.Empty;
+        _rooms = new List<Room>();
+    }
 
     /// <summary>Create a new object of department class.</summary>
     /// <param name="name">The name of the department.</param>
