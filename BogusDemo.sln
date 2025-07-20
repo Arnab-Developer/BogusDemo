@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusDemo.Infra", "BogusDemo.Infra\BogusDemo.Infra.csproj", "{A32DCF9E-D6D6-4CE8-AB56-AA4F702E0F4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusDemo.Application", "src\BogusDemo.Application\BogusDemo.Application.csproj", "{00995F35-DCE2-4B18-8EC5-873FA8EC6A8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{A32DCF9E-D6D6-4CE8-AB56-AA4F702E0F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A32DCF9E-D6D6-4CE8-AB56-AA4F702E0F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A32DCF9E-D6D6-4CE8-AB56-AA4F702E0F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00995F35-DCE2-4B18-8EC5-873FA8EC6A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00995F35-DCE2-4B18-8EC5-873FA8EC6A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00995F35-DCE2-4B18-8EC5-873FA8EC6A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00995F35-DCE2-4B18-8EC5-873FA8EC6A8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{C1440603-DFD8-40D3-8CB6-EBE480EB4A19} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{EAA33B68-F021-403F-9F35-B020F26EDCB3} = {47914B6F-C6D2-4297-90F9-86D94ED4D76B}
 		{A32DCF9E-D6D6-4CE8-AB56-AA4F702E0F4D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{00995F35-DCE2-4B18-8EC5-873FA8EC6A8A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C795621-EFC4-4EB4-8299-B7722E495B4A}
