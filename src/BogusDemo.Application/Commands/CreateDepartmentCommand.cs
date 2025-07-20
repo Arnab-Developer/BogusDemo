@@ -16,8 +16,7 @@ public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCo
     }
 
     async Task<bool> IRequestHandler<CreateDepartmentCommand, bool>.Handle(
-        CreateDepartmentCommand request,
-        CancellationToken ct)
+        CreateDepartmentCommand request, CancellationToken ct)
     {
         var department = new Department(request.Name);
         await _departmentRepo.AddAsync(department, ct).ConfigureAwait(false);

@@ -15,8 +15,7 @@ public class ChangeDepartmentNameCommandHandler : IRequestHandler<ChangeDepartme
     }
 
     async Task<bool> IRequestHandler<ChangeDepartmentNameCommand, bool>.Handle(
-        ChangeDepartmentNameCommand request,
-        CancellationToken ct)
+        ChangeDepartmentNameCommand request, CancellationToken ct)
     {
         var department = await _departmentRepo.GetAsync(request.Id, ct).ConfigureAwait(false);
         department.ChangeName(request.Name);
