@@ -8,7 +8,7 @@ public class Department : BaseModel
     private string _name;
     private readonly IList<Room> _rooms;
 
-    private Department()
+    public Department()
     {
         _name = string.Empty;
         _rooms = new List<Room>();

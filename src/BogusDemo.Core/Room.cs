@@ -8,7 +8,7 @@ public class Room : BaseModel
     private string _roomNumber;
     private Department? _department;
 
-    private Room()
+    public Room()
     {
         _roomNumber = string.Empty;
         _department = null;
