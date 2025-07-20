@@ -8,7 +8,7 @@ internal static class CreateRoomEndpoint
 {
     public static void MapCreateRoomEndpoint(this IEndpointRouteBuilder builder)
     {
-        builder.MapGet("create-room", HandleAsync);
+        builder.MapPut("create-room", HandleAsync);
     }
 
     private static async Task<Results<Ok, NotFound>> HandleAsync(

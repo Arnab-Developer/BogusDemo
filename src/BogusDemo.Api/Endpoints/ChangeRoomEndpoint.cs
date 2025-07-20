@@ -8,7 +8,7 @@ internal static class ChangeRoomEndpoint
 {
     public static void MapChangeRoomEndpoint(this IEndpointRouteBuilder builder)
     {
-        builder.MapGet("change-room", HandleAsync);
+        builder.MapPost("change-room", HandleAsync);
     }
 
     private static async Task<Results<Ok, NotFound>> HandleAsync(

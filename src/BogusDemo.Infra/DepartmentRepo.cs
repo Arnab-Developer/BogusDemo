@@ -35,7 +35,9 @@ public class DepartmentRepo : IDepartmentRepo
 
     async public Task<Department> GetAsync(int id, CancellationToken ct)
     {
-        var department = await _context.Departments.FirstAsync(d => d.Id == id, ct)
+        var department = await _context.Departments
+            .Include(d => d.Rooms)
+            .FirstAsync(d => d.Id == id, ct)
             .ConfigureAwait(false);
 
         return department;

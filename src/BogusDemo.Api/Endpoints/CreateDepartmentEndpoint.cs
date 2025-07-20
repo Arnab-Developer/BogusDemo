@@ -8,7 +8,7 @@ internal static class CreateDepartmentEndpoint
 {
     public static void MapCreateDepartmentEndpoint(this IEndpointRouteBuilder builder)
     {
-        builder.MapGet("create-department", HandleAsync);
+        builder.MapPut("create-department", HandleAsync);
     }
 
     private static async Task<Results<Ok, NotFound>> HandleAsync(
