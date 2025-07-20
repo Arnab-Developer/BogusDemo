@@ -5,7 +5,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BogusDemo.Infra\BogusDemo.Infra.csproj" />
+    <ProjectReference Include="..\BogusDemo.Infra\BogusDemo.Infra.csproj" />
   </ItemGroup>
 
 </Project>
