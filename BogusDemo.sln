@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusDemo.Application", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusDemo.ApplicationTest", "test\BogusDemo.ApplicationTest\BogusDemo.ApplicationTest.csproj", "{F5A6AB7A-FEBD-416D-B618-515B9E63D284}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusDemo.Api", "src\BogusDemo.Api\BogusDemo.Api.csproj", "{9E1505AA-6D59-44A4-A1D4-A0BC8FF78734}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{F5A6AB7A-FEBD-416D-B618-515B9E63D284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5A6AB7A-FEBD-416D-B618-515B9E63D284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5A6AB7A-FEBD-416D-B618-515B9E63D284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E1505AA-6D59-44A4-A1D4-A0BC8FF78734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1505AA-6D59-44A4-A1D4-A0BC8FF78734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1505AA-6D59-44A4-A1D4-A0BC8FF78734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1505AA-6D59-44A4-A1D4-A0BC8FF78734}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{A32DCF9E-D6D6-4CE8-AB56-AA4F702E0F4D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{00995F35-DCE2-4B18-8EC5-873FA8EC6A8A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{F5A6AB7A-FEBD-416D-B618-515B9E63D284} = {47914B6F-C6D2-4297-90F9-86D94ED4D76B}
+		{9E1505AA-6D59-44A4-A1D4-A0BC8FF78734} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C795621-EFC4-4EB4-8299-B7722E495B4A}
