@@ -13,6 +13,7 @@ public class Room : BaseModel
     public Room(string number)
     {
         _roomNumber = Guard.Against.NullOrWhiteSpace(number);
+        _department = null;
     }
 
     /// <summary>Gets the number of the room.</summary>
