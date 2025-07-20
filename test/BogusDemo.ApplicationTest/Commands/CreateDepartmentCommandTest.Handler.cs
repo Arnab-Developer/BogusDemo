@@ -1,7 +1,4 @@
-﻿using BogusDemo.Core;
-using Shouldly;
-
-namespace BogusDemo.ApplicationTest.Commands;
+﻿namespace BogusDemo.ApplicationTest.Commands;
 
 public partial class CreateDepartmentCommandTest
 {
@@ -19,7 +16,7 @@ public partial class CreateDepartmentCommandTest
         isSuccess.ShouldBeTrue();
 
         _repoMock.Verify(
-            r => r.AddAsync(It.Is<Department>(d => d.Name == "Test Department"), _ct), 
+            r => r.AddAsync(It.Is<Department>(d => d.Name == "Test Department"), _ct),
             Times.Once());
 
         _repoMock.Verify(r => r.SaveChangesAsync(_ct), Times.Once());
