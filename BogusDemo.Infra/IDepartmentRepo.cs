@@ -2,7 +2,7 @@
 
 namespace BogusDemo.Infra;
 
-/// <summary>Repo class of department.</summary>
+/// <summary>Repo of the department.</summary>
 public interface IDepartmentRepo
 {
     /// <summary>Add new department.</summary>
