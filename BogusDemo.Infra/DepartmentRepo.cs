@@ -30,7 +30,7 @@ public class DepartmentRepo : IDepartmentRepo
         _context.Departments.Remove(department);
     }
 
-    async public Task<Department> Get(int id, CancellationToken ct)
+    async public Task<Department> GetAsync(int id, CancellationToken ct)
     {
         var department = await _context.Departments.FirstAsync(d => d.Id == id, ct)
             .ConfigureAwait(false);
@@ -38,7 +38,7 @@ public class DepartmentRepo : IDepartmentRepo
         return department;
     }
 
-    async Task IDepartmentRepo.SaveChangesAsunc(CancellationToken ct)
+    async Task IDepartmentRepo.SaveChangesAsync(CancellationToken ct)
     {
         await _context.SaveChangesAsync(ct).ConfigureAwait(false);
     }

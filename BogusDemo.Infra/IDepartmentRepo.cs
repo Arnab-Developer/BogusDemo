@@ -28,10 +28,10 @@ public interface IDepartmentRepo
     /// <param name="id">The id of the existing department.</param>
     /// <param name="ct">The cancellation token to cancel the async work.</param>
     /// <returns>A task containing a department object.</returns>
-    public Task<Department> Get(int id, CancellationToken ct);
+    public Task<Department> GetAsync(int id, CancellationToken ct);
 
     /// <summary>Save the changes in the datastore.</summary>
     /// <param name="ct">The cancellation token to cancel the async work.</param>
     /// <returns>A task.</returns>
-    public Task SaveChangesAsunc(CancellationToken ct);
+    public Task SaveChangesAsync(CancellationToken ct);
 }

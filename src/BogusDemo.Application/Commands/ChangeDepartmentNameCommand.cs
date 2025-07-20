@@ -7,20 +7,20 @@ public record ChangeDepartmentNameCommand(int Id, string Name) : IRequest<bool>;
 
 public class ChangeDepartmentNameCommandHandler : IRequestHandler<ChangeDepartmentNameCommand, bool>
 {
-    private readonly BogusDemoContext _context;
+    private readonly IDepartmentRepo _departmentRepo;
 
-    public ChangeDepartmentNameCommandHandler(BogusDemoContext context)
+    public ChangeDepartmentNameCommandHandler(IDepartmentRepo departmentRepo)
     {
-        _context = context;
+        _departmentRepo = departmentRepo;
     }
 
     async Task<bool> IRequestHandler<ChangeDepartmentNameCommand, bool>.Handle(
         ChangeDepartmentNameCommand request,
         CancellationToken ct)
     {
-        var department = _context.Departments.First(d => d.Id == request.Id);
+        var department = await _departmentRepo.GetAsync(request.Id, ct).ConfigureAwait(false);
         department.ChangeName(request.Name);
-        await _context.SaveChangesAsync(ct).ConfigureAwait(false);
+        await _departmentRepo.SaveChangesAsync(ct).ConfigureAwait(false);
         return true;
     }
 }

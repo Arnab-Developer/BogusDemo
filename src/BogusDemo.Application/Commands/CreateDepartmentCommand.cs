@@ -8,11 +8,11 @@ public record CreateDepartmentCommand(string Name) : IRequest<bool>;
 
 public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCommand, bool>
 {
-    private readonly BogusDemoContext _context;
+    private readonly IDepartmentRepo _departmentRepo;
 
-    public CreateDepartmentCommandHandler(BogusDemoContext context)
+    public CreateDepartmentCommandHandler(IDepartmentRepo departmentRepo)
     {
-        _context = context;
+        _departmentRepo = departmentRepo;
     }
 
     async Task<bool> IRequestHandler<CreateDepartmentCommand, bool>.Handle(
@@ -20,8 +20,8 @@ public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCo
         CancellationToken ct)
     {
         var department = new Department(request.Name);
-        await _context.Departments.AddAsync(department, ct).ConfigureAwait(false);
-        await _context.SaveChangesAsync(ct).ConfigureAwait(false);
+        await _departmentRepo.AddAsync(department, ct).ConfigureAwait(false);
+        await _departmentRepo.SaveChangesAsync(ct).ConfigureAwait(false);
         return true;
     }
 }
