@@ -42,6 +42,10 @@ public class Room : BaseModel
         {
             return _department;
         }
+        private set
+        {
+            _department = value;
+        }
     }
 
     /// <summary>Change the number of the room.</summary>
