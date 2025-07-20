@@ -1,5 +1,4 @@
 ﻿using Ardalis.GuardClauses;
-using System.Xml.Linq;
 
 namespace BogusDemo.Core;
 
@@ -29,6 +28,10 @@ public class Department : BaseModel
         get
         {
             return _name;
+        }
+        private set
+        {
+            _name = value;
         }
     }
 
