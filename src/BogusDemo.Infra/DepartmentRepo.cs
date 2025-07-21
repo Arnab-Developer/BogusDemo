@@ -20,17 +20,10 @@ public class DepartmentRepo : IDepartmentRepo
         await _context.Departments.AddAsync(department, ct).ConfigureAwait(false);
     }
 
-    async Task IDepartmentRepo.UpdateAsync(int id, Department department, CancellationToken ct)
+    async Task IDepartmentRepo.DeleteAsync(Department department, CancellationToken ct)
     {
-        await Task.CompletedTask;
-    }
-
-    async Task IDepartmentRepo.DeleteAsync(int id, CancellationToken ct)
-    {
-        var department = await _context.Departments.FirstAsync(d => d.Id == id, ct)
-            .ConfigureAwait(false);
-
         _context.Departments.Remove(department);
+        await Task.CompletedTask;
     }
 
     async public Task<Department> GetAsync(int id, CancellationToken ct)

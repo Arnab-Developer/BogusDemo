@@ -75,4 +75,10 @@ public class Department : BaseModel
         var room = _rooms.First(r => r.Id == id);
         _rooms.Remove(room);
     }
+
+    /// <summary>Delete all rooms of the department.</summary>
+    public void DeleteAllRooms()
+    {
+        _rooms.Clear();
+    }
 }
