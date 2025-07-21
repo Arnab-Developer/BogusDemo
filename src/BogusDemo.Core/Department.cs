@@ -66,7 +66,7 @@ public class Department : BaseModel
     {
         var room = _rooms.First(r => r.Id == id);
         room.ChangeRoomNumber(number);
-    }    
+    }
 
     /// <summary>Delete a room of the department.</summary>
     /// <param name="id">The id of the room.</param>
