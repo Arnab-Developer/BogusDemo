@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BogusDemo.Core;
+using Microsoft.EntityFrameworkCore;
 
 namespace BogusDemo.Api.Endpoints;
 
@@ -23,6 +24,18 @@ internal static class GetDepartmentsEndpoint
             .Take(pageSize)
             .ToListAsync(ct);
 
+        var departmentDTOs = departments.ToDTOs();
+
+        return departments.Count == 0
+            ? TypedResults.NotFound()
+            : TypedResults.Ok(departmentDTOs);
+    }
+}
+
+internal static class DepartmentsToDTOsConverterExtensions
+{
+    public static IEnumerable<DepartmentDTO> ToDTOs(this IEnumerable<Department> departments)
+    {
         var departmentDTOs = departments
             .Select(d => new DepartmentDTO(
                 d.Id,
@@ -30,12 +43,10 @@ internal static class GetDepartmentsEndpoint
                 d.Rooms.Select(r => new RoomDTO(r.Id, r.RoomNumber))
             ));
 
-        return departments.Count != 0
-            ? TypedResults.Ok(departmentDTOs)
-            : TypedResults.NotFound();
+        return departmentDTOs;
     }
-
-    private record DepartmentDTO(int Id, string Name, IEnumerable<RoomDTO> Rooms);
-
-    private record RoomDTO(int Id, string RoomNumber);
 }
+
+internal record DepartmentDTO(int Id, string Name, IEnumerable<RoomDTO> Rooms);
+
+internal record RoomDTO(int Id, string RoomNumber);
