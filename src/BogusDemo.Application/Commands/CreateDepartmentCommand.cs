@@ -1,6 +1,4 @@
 ﻿using BogusDemo.Core;
-using BogusDemo.Infra;
-using MediatR;
 
 namespace BogusDemo.Application.Commands;
 

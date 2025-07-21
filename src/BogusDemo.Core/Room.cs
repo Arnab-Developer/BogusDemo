@@ -1,6 +1,4 @@
-﻿using Ardalis.GuardClauses;
-
-namespace BogusDemo.Core;
+﻿namespace BogusDemo.Core;
 
 /// <summary>The room class.</summary>
 public class Room : BaseModel

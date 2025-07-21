@@ -1,6 +1,5 @@
 using BogusDemo.Api.Endpoints;
 using BogusDemo.Application.Behaviors;
-using BogusDemo.Application.Commands;
 using BogusDemo.Infra;
 using Scalar.AspNetCore;
 

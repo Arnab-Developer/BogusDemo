@@ -1,8 +1,4 @@
-﻿using BogusDemo.Application.Commands;
-using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
-
-namespace BogusDemo.Api.Endpoints;
+﻿namespace BogusDemo.Api.Endpoints;
 
 internal static class DeleteDepartmentEndpoint
 {

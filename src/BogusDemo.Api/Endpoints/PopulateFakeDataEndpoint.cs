@@ -1,7 +1,6 @@
 ﻿using Bogus;
 using BogusDemo.Core;
 using BogusDemo.Infra;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace BogusDemo.Api.Endpoints;
