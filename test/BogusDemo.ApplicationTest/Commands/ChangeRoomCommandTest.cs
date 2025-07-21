@@ -2,14 +2,13 @@
 
 public partial class ChangeRoomCommandTest
 {
-    private readonly ChangeRoomCommand _command;
+    private ChangeRoomCommand? _command;
     private readonly IRequestHandler<ChangeRoomCommand, bool> _commandHandler;
     private readonly Mock<IDepartmentRepo> _repoMock;
     private readonly CancellationToken _ct;
 
     public ChangeRoomCommandTest()
-    {
-        _command = new ChangeRoomCommand(1, 0, "R002");
+    {        
         _repoMock = new Mock<IDepartmentRepo>();
         _commandHandler = new ChangeRoomCommandHandler(_repoMock.Object);
         _ct = CancellationToken.None;
