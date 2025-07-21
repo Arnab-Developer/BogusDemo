@@ -1,6 +1,4 @@
-﻿using BogusDemo.Core;
-
-namespace BogusDemo.ApplicationTest.Commands;
+﻿namespace BogusDemo.ApplicationTest.Commands;
 
 public partial class CreateRoomCommandTest
 {
@@ -51,5 +49,11 @@ public partial class CreateRoomCommandTest
         // Assert
         var exception = await func.ShouldThrowAsync<ArgumentException>();
         exception.Message.ShouldBe("Required input number was empty. (Parameter 'number')");
+
+        department.Rooms.ShouldBeEmpty();
+
+        _repoMock.Verify(r => r.GetAsync(1, _ct), Times.Once());
+        _repoMock.Verify(r => r.SaveChangesAsync(_ct), Times.Never());
+        _repoMock.VerifyNoOtherCalls();
     }
 }
