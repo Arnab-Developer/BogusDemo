@@ -2,7 +2,7 @@
 
 public partial class ChangeDepartmentNameCommandTest
 {
-    private ChangeDepartmentNameCommand _command;
+    private ChangeDepartmentNameCommand? _command;
     private readonly IRequestHandler<ChangeDepartmentNameCommand, bool> _commandHandler;
     private readonly Mock<IDepartmentRepo> _repoMock;
     private readonly CancellationToken _ct;
