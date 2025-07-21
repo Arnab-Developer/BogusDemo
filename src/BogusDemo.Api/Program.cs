@@ -31,6 +31,7 @@ app.MapChangeDepartmentNameEndpoint();
 app.MapCreateRoomEndpoint();
 app.MapChangeRoomEndpoint();
 app.MapDeleteRoomEndpoint();
+app.MapDeleteDepartmentEndpoint();
 app.MapPopulateFakeDataEndpoint();
 
 app.Run();
