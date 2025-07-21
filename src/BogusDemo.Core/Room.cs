@@ -31,7 +31,7 @@ public class Room : BaseModel
         }
         private set
         {
-            _roomNumber = value;
+            _roomNumber = Guard.Against.NullOrWhiteSpace(value);
         }
     }
 
