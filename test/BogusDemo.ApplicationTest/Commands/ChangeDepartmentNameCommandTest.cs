@@ -8,7 +8,7 @@ public partial class ChangeDepartmentNameCommandTest
     private readonly CancellationToken _ct;
 
     public ChangeDepartmentNameCommandTest()
-    {        
+    {
         _repoMock = new Mock<IDepartmentRepo>();
         _commandHandler = new ChangeDepartmentNameCommandHandler(_repoMock.Object);
         _ct = CancellationToken.None;

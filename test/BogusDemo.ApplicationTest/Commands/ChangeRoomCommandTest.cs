@@ -8,7 +8,7 @@ public partial class ChangeRoomCommandTest
     private readonly CancellationToken _ct;
 
     public ChangeRoomCommandTest()
-    {        
+    {
         _repoMock = new Mock<IDepartmentRepo>();
         _commandHandler = new ChangeRoomCommandHandler(_repoMock.Object);
         _ct = CancellationToken.None;

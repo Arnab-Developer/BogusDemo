@@ -20,7 +20,6 @@ public class ChangeRoomCommandHandler : IRequestHandler<ChangeRoomCommand, bool>
         var department = await _departmentRepo.GetAsync(request.DepartmentId, ct)
             .ConfigureAwait(false);
 
-        //department.ChangeName(department.Name + " - U");
         department.ChangeRoom(request.RoomId, request.RoomNumber);
         await _departmentRepo.SaveChangesAsync(ct).ConfigureAwait(false);
         return true;
