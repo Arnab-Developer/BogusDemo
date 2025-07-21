@@ -1,4 +1,5 @@
 using BogusDemo.Api.Endpoints;
+using BogusDemo.Application.Behaviors;
 using BogusDemo.Application.Commands;
 using BogusDemo.Infra;
 using Scalar.AspNetCore;
@@ -12,7 +13,10 @@ var constr = builder.Configuration.GetConnectionString("Constr");
 builder.Services.AddSqlServer<BogusDemoContext>(constr);
 
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssemblyContaining<CreateDepartmentCommand>());
+{
+    cfg.RegisterServicesFromAssemblyContaining<CreateDepartmentCommand>();
+    cfg.AddOpenBehavior(typeof(TransactionBehavior<,>));
+});
 
 var app = builder.Build();
 
