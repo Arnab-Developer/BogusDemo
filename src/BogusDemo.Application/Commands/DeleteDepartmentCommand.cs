@@ -17,6 +17,10 @@ public class DeleteDepartmentCommandHandler : IRequestHandler<DeleteDepartmentCo
     async Task<bool> IRequestHandler<DeleteDepartmentCommand, bool>.Handle(
         DeleteDepartmentCommand request, CancellationToken ct)
     {
+        var department = await _departmentRepo.GetAsync(request.DepartmentId, ct)
+            .ConfigureAwait(false);
+
+        department.DeleteAllRooms();
         await _departmentRepo.DeleteAsync(request.DepartmentId, ct).ConfigureAwait(false);
         await _departmentRepo.SaveChangesAsync(ct).ConfigureAwait(false);
         return true;
