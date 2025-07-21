@@ -6,6 +6,8 @@ public partial class CreateDepartmentCommandTest
     public async Task Handler_WorkProperly_GivenValidInput()
     {
         // Arrange
+        _command = new CreateDepartmentCommand("Test Department");
+
         _repoMock.Setup(r => r.AddAsync(It.IsAny<Department>(), _ct));
         _repoMock.Setup(r => r.SaveChangesAsync(_ct));
 
@@ -21,5 +23,24 @@ public partial class CreateDepartmentCommandTest
 
         _repoMock.Verify(r => r.SaveChangesAsync(_ct), Times.Once());
         _repoMock.VerifyNoOtherCalls();
+    }
+
+    [Theory]
+    [InlineData("")]
+    [InlineData(" ")]
+    public async Task Handler_ThrowsException_GivenInvalidInput(string name)
+    {
+        // Arrange
+        _command = new CreateDepartmentCommand(name);
+
+        _repoMock.Setup(r => r.AddAsync(It.IsAny<Department>(), _ct));
+        _repoMock.Setup(r => r.SaveChangesAsync(_ct));
+
+        // Act
+        var func = () => _commandHandler.Handle(_command, _ct);
+
+        // Assert
+        var exception = await func.ShouldThrowAsync<ArgumentException>();
+        exception.Message.ShouldBe("Required input name was empty. (Parameter 'name')");
     }
 }
