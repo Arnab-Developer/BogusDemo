@@ -1,6 +1,5 @@
 using BogusDemo.Api.Endpoints;
 using BogusDemo.Application.Behaviors;
-using BogusDemo.Infra;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +30,7 @@ app.MapCreateRoomEndpoint();
 app.MapChangeRoomEndpoint();
 app.MapDeleteRoomEndpoint();
 app.MapDeleteDepartmentEndpoint();
+app.MapGetDepartmentsEndpoint();
 app.MapPopulateFakeDataEndpoint();
 
 app.Run();
