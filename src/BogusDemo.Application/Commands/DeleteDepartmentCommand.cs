@@ -21,7 +21,7 @@ public class DeleteDepartmentCommandHandler : IRequestHandler<DeleteDepartmentCo
             .ConfigureAwait(false);
 
         department.DeleteAllRooms();
-        await _departmentRepo.DeleteAsync(request.DepartmentId, ct).ConfigureAwait(false);
+        await _departmentRepo.DeleteAsync(department, ct).ConfigureAwait(false);
         await _departmentRepo.SaveChangesAsync(ct).ConfigureAwait(false);
         return true;
     }

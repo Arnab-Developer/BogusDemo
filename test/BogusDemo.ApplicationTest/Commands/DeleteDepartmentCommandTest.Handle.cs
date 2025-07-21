@@ -14,7 +14,7 @@ public partial class DeleteDepartmentCommandTest
             .Setup(r => r.GetAsync(1, _ct))
             .ReturnsAsync(department);
 
-        _repoMock.Setup(r => r.DeleteAsync(1, _ct));
+        _repoMock.Setup(r => r.DeleteAsync(department, _ct));
         _repoMock.Setup(r => r.SaveChangesAsync(_ct));
 
         // Act
@@ -25,7 +25,7 @@ public partial class DeleteDepartmentCommandTest
         department.Rooms.ShouldBeEmpty();
 
         _repoMock.Verify(r => r.GetAsync(1, _ct), Times.Once());
-        _repoMock.Verify(r => r.DeleteAsync(1, _ct), Times.Once());
+        _repoMock.Verify(r => r.DeleteAsync(department, _ct), Times.Once());
         _repoMock.Verify(r => r.SaveChangesAsync(_ct), Times.Once());
         _repoMock.VerifyNoOtherCalls();
     }

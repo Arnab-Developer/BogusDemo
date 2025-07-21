@@ -11,18 +11,11 @@ public interface IDepartmentRepo
     /// <returns>A task.</returns>
     public Task AddAsync(Department department, CancellationToken ct);
 
-    /// <summary>Update the department.</summary>
-    /// <param name="id">The id of the existing department.</param>
-    /// <param name="department">The new department.</param>
-    /// <param name="ct">The cancellation token to cancel the async work.</param>
-    /// <returns>A task.</returns>
-    public Task UpdateAsync(int id, Department department, CancellationToken ct);
-
     /// <summary>Delete the department.</summary>
-    /// <param name="id">The id of the existing department.</param>
+    /// <param name="department">The existing department.</param>
     /// <param name="ct">The cancellation token to cancel the async work.</param>
     /// <returns>A task.</returns>
-    public Task DeleteAsync(int id, CancellationToken ct);
+    public Task DeleteAsync(Department department, CancellationToken ct);
 
     /// <summary>Gets a department by id.</summary>
     /// <param name="id">The id of the existing department.</param>
