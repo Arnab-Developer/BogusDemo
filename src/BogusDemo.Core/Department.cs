@@ -31,7 +31,7 @@ public class Department : BaseModel
         }
         private set
         {
-            _name = value;
+            _name = Guard.Against.NullOrWhiteSpace(value);
         }
     }
 
