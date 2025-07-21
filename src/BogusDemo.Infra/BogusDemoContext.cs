@@ -1,7 +1,4 @@
-﻿using BogusDemo.Core;
-using Microsoft.EntityFrameworkCore;
-
-namespace BogusDemo.Infra;
+﻿namespace BogusDemo.Infra;
 
 public class BogusDemoContext(DbContextOptions<BogusDemoContext> options)
     : DbContext(options)

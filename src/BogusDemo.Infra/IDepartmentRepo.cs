@@ -1,6 +1,4 @@
-﻿using BogusDemo.Core;
-
-namespace BogusDemo.Infra;
+﻿namespace BogusDemo.Infra;
 
 /// <summary>Repo of the department.</summary>
 public interface IDepartmentRepo

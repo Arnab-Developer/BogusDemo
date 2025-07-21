@@ -1,7 +1,4 @@
-﻿using BogusDemo.Infra;
-using MediatR;
-
-namespace BogusDemo.Application.Commands;
+﻿namespace BogusDemo.Application.Commands;
 
 public record DeleteDepartmentCommand(int DepartmentId) : IRequest<bool>;
 

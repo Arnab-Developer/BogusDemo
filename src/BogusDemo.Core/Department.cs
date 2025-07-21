@@ -1,6 +1,4 @@
-﻿using Ardalis.GuardClauses;
-
-namespace BogusDemo.Core;
+﻿namespace BogusDemo.Core;
 
 /// <summary>The department model class.</summary>
 public class Department : BaseModel

@@ -1,7 +1,4 @@
-﻿using BogusDemo.Infra;
-using MediatR;
-
-namespace BogusDemo.Application.Commands;
+﻿namespace BogusDemo.Application.Commands;
 
 public record DeleteRoomCommand(int DepartmentId, int RoomId) : IRequest<bool>;
 
