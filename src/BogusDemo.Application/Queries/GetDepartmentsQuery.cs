@@ -27,8 +27,7 @@ public class GetDepartmentsQueryHandler
             .Take(request.PageSize)
             .ToListAsync(ct);
 
-        var departmentDTOs = departments.ToDTOs();
-        return departmentDTOs;
+        return departments.ToDTOs();
     }
 }
 
