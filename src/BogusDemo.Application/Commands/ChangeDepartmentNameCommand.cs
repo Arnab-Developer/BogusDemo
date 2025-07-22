@@ -1,5 +1,8 @@
 ﻿namespace BogusDemo.Application.Commands;
 
+/// <summary>A command to change the name of a department.</summary>
+/// <param name="Id">The id of the existing department.</param>
+/// <param name="Name">The new name of the department.</param>
 public record ChangeDepartmentNameCommand(int Id, string Name) : IRequest<bool>;
 
 public class ChangeDepartmentNameCommandHandler : IRequestHandler<ChangeDepartmentNameCommand, bool>
