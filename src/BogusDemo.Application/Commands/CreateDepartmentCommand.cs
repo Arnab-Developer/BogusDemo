@@ -1,6 +1,4 @@
-﻿using BogusDemo.Core;
-
-namespace BogusDemo.Application.Commands;
+﻿namespace BogusDemo.Application.Commands;
 
 public record CreateDepartmentCommand(string Name) : IRequest<bool>;
 
