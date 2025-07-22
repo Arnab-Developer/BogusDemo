@@ -1,6 +1,6 @@
 ﻿namespace BogusDemo.Infra;
 
-/// <summary>Repo of the department.</summary>
+/// <summary>The department repo.</summary>
 public class DepartmentRepo : IDepartmentRepo
 {
     private readonly BogusDemoContext _context;
@@ -12,18 +12,30 @@ public class DepartmentRepo : IDepartmentRepo
         _context = context;
     }
 
-    async Task IDepartmentRepo.AddAsync(Department department, CancellationToken ct)
+    /// <summary>Add new department.</summary>
+    /// <param name="department">The new department.</param>
+    /// <param name="ct">The cancellation token to cancel the async work.</param>
+    /// <returns>A task.</returns>
+    public async Task AddAsync(Department department, CancellationToken ct)
     {
         await _context.Departments.AddAsync(department, ct).ConfigureAwait(false);
     }
 
-    async Task IDepartmentRepo.DeleteAsync(Department department, CancellationToken ct)
+    /// <summary>Delete the department.</summary>
+    /// <param name="department">The existing department.</param>
+    /// <param name="ct">The cancellation token to cancel the async work.</param>
+    /// <returns>A task.</returns>
+    public async Task DeleteAsync(Department department, CancellationToken ct)
     {
         _context.Departments.Remove(department);
         await Task.CompletedTask;
     }
 
-    async public Task<Department> GetAsync(int id, CancellationToken ct)
+    /// <summary>Gets a department by id.</summary>
+    /// <param name="id">The id of the existing department.</param>
+    /// <param name="ct">The cancellation token to cancel the async work.</param>
+    /// <returns>A task containing a department object.</returns>
+    public async Task<Department> GetAsync(int id, CancellationToken ct)
     {
         var department = await _context.Departments
             .Include(d => d.Rooms)
@@ -33,7 +45,10 @@ public class DepartmentRepo : IDepartmentRepo
         return department;
     }
 
-    async Task IDepartmentRepo.SaveChangesAsync(CancellationToken ct)
+    /// <summary>Save the changes in the datastore.</summary>
+    /// <param name="ct">The cancellation token to cancel the async work.</param>
+    /// <returns>A task.</returns>
+    public async Task SaveChangesAsync(CancellationToken ct)
     {
         await _context.SaveChangesAsync(ct).ConfigureAwait(false);
     }
