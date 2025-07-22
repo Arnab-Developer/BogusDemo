@@ -1,5 +1,7 @@
 ﻿namespace BogusDemo.Application.Commands;
 
+/// <summary>A command to delete a department.</summary>
+/// <param name="DepartmentId">The id of the existing department.</param>
 public record DeleteDepartmentCommand(int DepartmentId) : IRequest<bool>;
 
 public class DeleteDepartmentCommandHandler : IRequestHandler<DeleteDepartmentCommand, bool>

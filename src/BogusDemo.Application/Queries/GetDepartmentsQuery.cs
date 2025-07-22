@@ -2,6 +2,9 @@
 
 namespace BogusDemo.Application.Queries;
 
+/// <summary>A query to get the departments data with its rooms.</summary>
+/// <param name="PageNumber">The number of the page.</param>
+/// <param name="PageSize">The size of the page.</param>
 public record GetDepartmentsQuery(int PageNumber, int PageSize)
     : IRequest<IEnumerable<DepartmentDTO>>;
 
@@ -31,8 +34,15 @@ public class GetDepartmentsQueryHandler
     }
 }
 
+/// <summary>The department DTO.</summary>
+/// <param name="Id">The id of the department.</param>
+/// <param name="Name">The name of the department.</param>
+/// <param name="Rooms">The rooms of the department.</param>
 public record DepartmentDTO(int Id, string Name, IEnumerable<RoomDTO> Rooms);
 
+/// <summary>The room DTO.</summary>
+/// <param name="Id">The id of the room.</param>
+/// <param name="RoomNumber">The number of the room.</param>
 public record RoomDTO(int Id, string RoomNumber);
 
 internal static class DepartmentsToDTOsConverterExtensions

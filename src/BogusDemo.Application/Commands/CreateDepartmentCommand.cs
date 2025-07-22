@@ -1,5 +1,7 @@
 ﻿namespace BogusDemo.Application.Commands;
 
+/// <summary>A command to create a department.</summary>
+/// <param name="Name">The name of the department.</param>
 public record CreateDepartmentCommand(string Name) : IRequest<bool>;
 
 public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCommand, bool>
