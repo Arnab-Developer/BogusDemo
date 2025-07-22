@@ -1,5 +1,3 @@
 ﻿namespace BogusDemo.Core;
 
-public interface IAggregateRoot
-{
-}
+public interface IAggregateRoot;
