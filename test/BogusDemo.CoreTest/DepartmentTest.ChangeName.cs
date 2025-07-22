@@ -25,6 +25,6 @@ public partial class DepartmentTest
 
         // Assert
         var exception = changeName.ShouldThrow<ArgumentException>();
-        exception.Message.ShouldBe("Required input name was empty. (Parameter 'name')");
+        exception.Message.ShouldBe("Required input value was empty. (Parameter 'value')");
     }
 }

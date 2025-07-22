@@ -46,7 +46,7 @@ public class Department : BaseModel
     /// <param name="name">The new name.</param>
     public void ChangeName(string name)
     {
-        _name = Guard.Against.NullOrWhiteSpace(name);
+        Name = name;
     }
 
     /// <summary>Create a new room in the department.</summary>

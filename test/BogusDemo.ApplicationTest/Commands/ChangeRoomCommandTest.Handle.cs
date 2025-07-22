@@ -50,7 +50,7 @@ public partial class ChangeRoomCommandTest
 
         // Assert
         var exception = await func.ShouldThrowAsync<ArgumentException>();
-        exception.Message.ShouldBe("Required input number was empty. (Parameter 'number')");
+        exception.Message.ShouldBe("Required input value was empty. (Parameter 'value')");
 
         department.Rooms.Count.ShouldBe(1);
         department.Rooms[0].RoomNumber.ShouldBe("R001");

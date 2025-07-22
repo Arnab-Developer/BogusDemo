@@ -30,6 +30,6 @@ public partial class DepartmentTest
 
         // Assert
         var exception = changeRoom.ShouldThrow<ArgumentException>();
-        exception.Message.ShouldBe("Required input number was empty. (Parameter 'number')");
+        exception.Message.ShouldBe("Required input value was empty. (Parameter 'value')");
     }
 }
