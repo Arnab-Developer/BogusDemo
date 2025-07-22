@@ -24,7 +24,8 @@ public class GetDepartmentsQueryHandler
             .AsNoTracking()
             .Skip((request.PageNumber - 1) * request.PageSize)
             .Take(request.PageSize)
-            .ToListAsync(ct);
+            .ToListAsync(ct)
+            .ConfigureAwait(false);
 
         return departments.ToDTOs();
     }
