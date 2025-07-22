@@ -47,7 +47,7 @@ public partial class ChangeDepartmentNameCommandTest
 
         // Assert
         var exception = await func.ShouldThrowAsync<ArgumentException>();
-        exception.Message.ShouldBe("Required input name was empty. (Parameter 'name')");
+        exception.Message.ShouldBe("Required input value was empty. (Parameter 'value')");
 
         department.Name.ShouldBe("Test Department");
 

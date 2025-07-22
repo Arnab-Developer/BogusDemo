@@ -50,6 +50,6 @@ public class Room : BaseModel
     /// <param name="number">The new room number.</param>
     internal void ChangeRoomNumber(string number)
     {
-        _roomNumber = Guard.Against.NullOrWhiteSpace(number);
+        RoomNumber = number;
     }
 }
