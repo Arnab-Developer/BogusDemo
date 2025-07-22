@@ -1,7 +1,7 @@
 ﻿namespace BogusDemo.Core;
 
 /// <summary>The department model class.</summary>
-public class Department : BaseModel
+public class Department : BaseModel, IAggregateRoot
 {
     private string _name;
     private readonly IList<Room> _rooms;
