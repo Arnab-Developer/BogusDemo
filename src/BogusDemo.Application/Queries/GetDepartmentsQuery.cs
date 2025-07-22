@@ -1,5 +1,4 @@
-﻿using BogusDemo.Core;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace BogusDemo.Application.Queries;
 
