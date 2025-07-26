@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BogusDemo.Core.DepartmentAggregateRoot;
+using Microsoft.EntityFrameworkCore;
 
 namespace BogusDemo.Application.Queries;
 

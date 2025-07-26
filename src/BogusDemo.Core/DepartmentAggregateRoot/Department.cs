@@ -1,4 +1,4 @@
-﻿namespace BogusDemo.Core;
+﻿namespace BogusDemo.Core.DepartmentAggregateRoot;
 
 /// <summary>The department model class.</summary>
 public class Department : BaseModel, IAggregateRoot

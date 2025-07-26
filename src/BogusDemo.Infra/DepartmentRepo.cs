@@ -1,4 +1,6 @@
-﻿namespace BogusDemo.Infra;
+﻿using BogusDemo.Core.DepartmentAggregateRoot;
+
+namespace BogusDemo.Infra;
 
 /// <summary>The department repo.</summary>
 public class DepartmentRepo : IDepartmentRepo

@@ -1,4 +1,6 @@
-﻿namespace BogusDemo.Infra;
+﻿using BogusDemo.Core.DepartmentAggregateRoot;
+
+namespace BogusDemo.Infra;
 
 public class BogusDemoContext(DbContextOptions<BogusDemoContext> options)
     : DbContext(options)

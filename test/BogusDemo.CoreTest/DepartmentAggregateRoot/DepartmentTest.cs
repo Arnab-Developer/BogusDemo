@@ -1,6 +1,6 @@
-﻿using BogusDemo.Core;
+﻿using BogusDemo.Core.DepartmentAggregateRoot;
 
-namespace BogusDemo.CoreTest;
+namespace BogusDemo.CoreTest.DepartmentAggregateRoot;
 
 public partial class DepartmentTest
 {

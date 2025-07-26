@@ -1,5 +1,4 @@
 ﻿global using BogusDemo.Application.Commands;
-global using BogusDemo.Core;
 global using BogusDemo.Infra;
 global using MediatR;
 global using Moq;
