@@ -5,7 +5,7 @@ public partial class GetDepartmentsQueryTest
     [Theory]
     [InlineData(1, "d1", "r1", "d2", "r2")]
     [InlineData(2, "d3", "r3", "d4", "r4")]
-    public async Task Handle_ReturnProperData_GivenPageSizeTwo(
+    public async Task Handle_ReturnProperData_GivenPartialDataPageSize(
         int pageNumber, params string[] data)
     {
         // Arrange
@@ -25,7 +25,7 @@ public partial class GetDepartmentsQueryTest
     }
 
     [Fact]
-    public async Task Handle_ReturnProperData_GivenPageSizeFour()
+    public async Task Handle_ReturnProperData_GivenFullDataPageSize()
     {
         // Arrange
         _query = new GetDepartmentsQuery(1, 4);
@@ -47,5 +47,18 @@ public partial class GetDepartmentsQueryTest
 
         departmentDTOs.ElementAt(3).Name.ShouldBe("d4");
         departmentDTOs.ElementAt(3).Rooms.ElementAt(0).RoomNumber.ShouldBe("r4");
+    }
+
+    [Fact]
+    public async Task Handle_ReturnEmptyData_GivenInvalidPageNumber()
+    {
+        // Arrange
+        _query = new GetDepartmentsQuery(2, 4);
+
+        // Act
+        var departmentDTOs = await _queryHandler.Handle(_query, _ct);
+
+        // Assert
+        departmentDTOs.ShouldBeEmpty();
     }
 }
