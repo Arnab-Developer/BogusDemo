@@ -5,7 +5,7 @@ namespace BogusDemo.ApplicationTest.Queries;
 public class DatabaseFixture : IDisposable
 {
     private readonly BogusDemoContext _context;
-    private bool isDisposed;
+    private bool disposedValue;
 
     public DatabaseFixture()
     {
@@ -15,16 +15,6 @@ public class DatabaseFixture : IDisposable
 
         _context.Database.EnsureCreated();
         SeedData();
-    }
-
-    ~DatabaseFixture()
-    {
-        if (isDisposed)
-        {
-            return;
-        }
-
-        Dispose();
     }
 
     public BogusDemoContext Context
@@ -37,16 +27,28 @@ public class DatabaseFixture : IDisposable
 
     public void Dispose()
     {
-        if (isDisposed)
-        {
-            return;
-        }
-
-        _context.Database.EnsureDeleted();
-        _context.Dispose();
-
-        isDisposed = true;
+        // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        Dispose(true);
         GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposedValue)
+        {
+            if (disposing)
+            {
+                // TODO: dispose managed state (managed objects)
+            }
+
+            // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+            // TODO: set large fields to null
+
+            _context.Database.EnsureDeleted();
+            _context.Dispose();
+
+            disposedValue = true;
+        }
     }
 
     private void SeedData()
@@ -73,5 +75,12 @@ public class DatabaseFixture : IDisposable
 
         _context.Departments.AddRange(departments);
         _context.SaveChanges();
+    }
+
+    // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+    ~DatabaseFixture()
+    {
+        // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        Dispose(false);
     }
 }
