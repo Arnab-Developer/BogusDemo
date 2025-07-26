@@ -1,6 +1,4 @@
-﻿using BogusDemo.Core.DepartmentAggregateRoot;
-
-namespace BogusDemo.ApplicationTest.Commands;
+﻿namespace BogusDemo.ApplicationTest.Commands;
 
 public partial class CreateDepartmentCommandTest
 {
