@@ -43,7 +43,7 @@ public partial class GetDepartmentsQueryTest
             department3,
             department4
         };
-        
+
         context.Departments.AddRange(departments);
         context.SaveChanges();
     }
