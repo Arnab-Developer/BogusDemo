@@ -1,6 +1,4 @@
-﻿using BogusDemo.Core.DepartmentAggregateRoot;
-
-namespace BogusDemo.CoreTest.DepartmentAggregateRoot;
+﻿namespace BogusDemo.CoreTest.DepartmentAggregateRoot;
 
 public partial class DepartmentTest
 {
