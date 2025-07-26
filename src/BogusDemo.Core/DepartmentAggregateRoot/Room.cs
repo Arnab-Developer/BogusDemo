@@ -1,4 +1,4 @@
-﻿namespace BogusDemo.Core;
+﻿namespace BogusDemo.Core.DepartmentAggregateRoot;
 
 /// <summary>The room class.</summary>
 public class Room : BaseModel

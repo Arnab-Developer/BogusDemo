@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using BogusDemo.Core;
+using BogusDemo.Core.DepartmentAggregateRoot;
 using Microsoft.EntityFrameworkCore;
 
 namespace BogusDemo.Api.Endpoints;
