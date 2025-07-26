@@ -16,6 +16,7 @@ builder.Services.AddSqlServer<BogusDemoContext>(constr);
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssemblyContaining<CreateDepartmentCommand>();
+    cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
     cfg.AddOpenBehavior(typeof(TransactionBehavior<,>));
 });
 
