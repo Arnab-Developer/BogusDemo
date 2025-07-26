@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace BogusDemo.Application.Behaviors;
 
@@ -16,17 +17,23 @@ public class LoggingBehavior<TRequest, TResponse>
         CancellationToken ct)
     {
         _logger.LogExecutionStart();
+        var stopWatch = Stopwatch.StartNew();
+
         var response = await next(ct).ConfigureAwait(false);
-        _logger.LogExecutionEnd();
+
+        stopWatch.Stop();
+        _logger.LogExecutionEnd(stopWatch.ElapsedMilliseconds);
+
         return response;
     }
 }
 
 internal static partial class LoggerExtensions
 {
-    [LoggerMessage(EventId = 1, Level = LogLevel.Information, Message = "Exution start.")]
+    [LoggerMessage(EventId = 1, Level = LogLevel.Information, Message = "Execution start.")]
     public static partial void LogExecutionStart(this ILogger logger);
 
-    [LoggerMessage(EventId = 2, Level = LogLevel.Information, Message = "Exution end.")]
-    public static partial void LogExecutionEnd(this ILogger logger);
+    [LoggerMessage(EventId = 2, Level = LogLevel.Information, 
+        Message = "Execution end. Took {elapsedMilliseconds}")]
+    public static partial void LogExecutionEnd(this ILogger logger, long elapsedMilliseconds);
 }
