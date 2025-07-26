@@ -33,7 +33,7 @@ internal static partial class LoggerExtensions
     [LoggerMessage(EventId = 1, Level = LogLevel.Information, Message = "Execution start.")]
     public static partial void LogExecutionStart(this ILogger logger);
 
-    [LoggerMessage(EventId = 2, Level = LogLevel.Information, 
+    [LoggerMessage(EventId = 2, Level = LogLevel.Information,
         Message = "Execution end. Took {elapsedMilliseconds}")]
     public static partial void LogExecutionEnd(this ILogger logger, long elapsedMilliseconds);
 }
