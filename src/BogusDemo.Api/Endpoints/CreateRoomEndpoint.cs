@@ -8,11 +8,13 @@ internal static class CreateRoomEndpoint
     }
 
     private static async Task<Results<Ok, NotFound>> HandleAsync(
-        int id, string roomNumber, IMediator mediator, CancellationToken ct)
+        CreateRoomEndpointRequest request, IMediator mediator, CancellationToken ct)
     {
-        var command = new CreateRoomCommand(id, roomNumber);
+        var command = new CreateRoomCommand(request.Id, request.RoomNumber);
         var isSuccess = await mediator.Send(command, ct);
 
         return isSuccess ? TypedResults.Ok() : TypedResults.NotFound();
     }
+
+    private record CreateRoomEndpointRequest(int Id, string RoomNumber);
 }

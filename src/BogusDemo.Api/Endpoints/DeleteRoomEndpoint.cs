@@ -8,11 +8,13 @@ internal static class DeleteRoomEndpoint
     }
 
     private static async Task<Results<Ok, NotFound>> HandleAsync(
-        int departmentId, int roomId, IMediator mediator, CancellationToken ct)
+        DeleteRoomEndpointRequest request, IMediator mediator, CancellationToken ct)
     {
-        var command = new DeleteRoomCommand(departmentId, roomId);
+        var command = new DeleteRoomCommand(request.DepartmentId, request.RoomId);
         var isSuccess = await mediator.Send(command, ct);
 
         return isSuccess ? TypedResults.Ok() : TypedResults.NotFound();
     }
+
+    private record DeleteRoomEndpointRequest(int DepartmentId, int RoomId);
 }
