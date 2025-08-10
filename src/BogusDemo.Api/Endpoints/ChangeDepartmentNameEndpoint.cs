@@ -8,11 +8,13 @@ internal static class ChangeDepartmentNameEndpoint
     }
 
     private static async Task<Results<Ok, NotFound>> HandleAsync(
-        int id, string name, IMediator mediator, CancellationToken ct)
+        ChangeDepartmentNameEndpointRequest request, IMediator mediator, CancellationToken ct)
     {
-        var command = new ChangeDepartmentNameCommand(id, name);
+        var command = new ChangeDepartmentNameCommand(request.Id, request.Name);
         var isSuccess = await mediator.Send(command, ct);
 
         return isSuccess ? TypedResults.Ok() : TypedResults.NotFound();
     }
+
+    private record ChangeDepartmentNameEndpointRequest(int Id, string Name);
 }
